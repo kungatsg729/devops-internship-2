@@ -1,0 +1,19 @@
+services:
+  flask:
+    build: .
+    container_name: sysinfo-flask
+    ports:
+      - "5000:5000"
+    expose:
+      - "5000"
+
+  nginx:
+    image: nginx:alpine
+    container_name: sysinfo-nginx
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx.confg:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - flask
+
