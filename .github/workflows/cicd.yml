@@ -1,0 +1,21 @@
+name: further cicd 
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v4
+      - name: list files
+        run: ls -la
+      - name: script check
+        run: bash -n linux/function
+      - name: another script
+        run: bash -n linux/system_info.sh
+
