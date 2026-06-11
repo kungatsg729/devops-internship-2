@@ -4,9 +4,7 @@ services:
     container_name: sysinfo-flask
     ports:
       - "5000:5000"
-    expose:
-      - "5000"
-
+      
   nginx:
     image: nginx:alpine
     container_name: sysinfo-nginx
