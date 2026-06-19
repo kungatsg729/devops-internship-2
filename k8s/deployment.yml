@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: deploy
+  labels:
+    app: flask
+
+spec:
+  replicas: 2
+  selector:
+    matchLabels: 
+      app: flask
+  template:
+    metadata:
+      name: flask-app
+      labels:
+        app: flask
+    spec:
+      containers:
+        - name: flask-app
+          image: kunga
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 5000
